@@ -6,7 +6,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
-        
-    </Grid>
+    <StackPanel Spacing="20" x:Name="ContentArea">
+        <Button x:Uid="ReadNpyButton" Command="{x:Bind ViewModel.ReadNpyCommand}" HorizontalAlignment="Stretch" />
+        <Grid ColumnSpacing="20" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <NumberBox x:Uid="TargetRepetitionBox" Value="{x:Bind ViewModel.TargetRepetition, Mode=TwoWay}" Minimum="0" Maximum="{x:Bind ViewModel.RepetitionsMaximum, Mode=OneWay}" SpinButtonPlacementMode="Inline" HorizontalAlignment="Stretch" Grid.Column="0" />
+            <Slider x:Uid="TargetRepetitionSlider" Value="{x:Bind ViewModel.TargetRepetition, Mode=TwoWay}" Minimum="0" Maximum="{x:Bind ViewModel.RepetitionsMaximum, Mode=OneWay}" HorizontalAlignment="Stretch" Grid.Column="1" />
+        </Grid>
+        <Button x:Uid="SaveVmdButton" Command="{x:Bind ViewModel.SaveVmdCommand}" HorizontalAlignment="Stretch" />
+    </StackPanel>
 </Page>

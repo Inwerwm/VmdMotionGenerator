@@ -3,12 +3,13 @@ using Numpy;
 using Python.Runtime;
 
 namespace VmdMotionGenerator.Core.Models;
-public class MotionDiffusionModel
+public static class MotionDiffusionModel
 {
+    public static int GetRepetitionsCount(string npyPath) => LoadMotions(npyPath).shape[0];
+
     public static void ConvertToVmd(string npyPath, int repId, string savePath)
     {
-        var result = np.load(npyPath, allow_pickle: true);
-        var motions = new NDarray<float>(result.flat[0]["motion"]);
+        var motions = LoadMotions(npyPath);
 
         var vmd = new VocaloidMotionData()
         {
@@ -30,5 +31,11 @@ public class MotionDiffusionModel
         }
 
         vmd.Write(savePath);
+    }
+
+    private static NDarray<float> LoadMotions(string npyPath)
+    {
+        var result = np.load(npyPath, allow_pickle: true);
+        return new NDarray<float>(result.flat[0]["motion"]);
     }
 }
