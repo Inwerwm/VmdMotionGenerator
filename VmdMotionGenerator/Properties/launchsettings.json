@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "VmdMotionGenerator (Unpackaged)": {
+        "commandName": "Project"
+      },
+      "VmdMotionGenerator (Package)": {
+        "commandName": "MsixPackage"
+      }
+    }
+}
