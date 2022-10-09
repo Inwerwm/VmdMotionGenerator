@@ -5,7 +5,7 @@ using Python.Runtime;
 namespace VmdMotionGenerator.Core.Models;
 public class MotionDiffusionModel
 {
-    public void ConvertToVmd(string npyPath, int repId, string savePath)
+    public static void ConvertToVmd(string npyPath, int repId, string savePath)
     {
         var result = np.load(npyPath, allow_pickle: true);
         var motions = new NDarray<float>(result.flat[0]["motion"]);
