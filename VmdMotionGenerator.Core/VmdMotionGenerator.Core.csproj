@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Numpy" Version="3.10.1.30" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <Reference Include="MikuMikuMethods">
+      <HintPath>..\..\MikuMikuMethods\MikuMikuMethods\bin\Release\net6.0\MikuMikuMethods.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
