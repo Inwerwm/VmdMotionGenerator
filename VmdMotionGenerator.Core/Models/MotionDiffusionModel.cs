@@ -8,7 +8,7 @@ public class MotionDiffusionModel
     public void ConvertToVmd(string npyPath, int repId, string savePath)
     {
         var result = np.load(npyPath, allow_pickle: true);
-        var motions = result.flat[0]["motion"].As<NDarray<float>>();
+        var motions = new NDarray<float>(result.flat[0]["motion"]);
 
         var vmd = new VocaloidMotionData()
         {
